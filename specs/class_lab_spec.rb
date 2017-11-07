@@ -31,15 +31,15 @@ require_relative"../class_lab.rb"
 #   end
 # end
 
-class TestTeam  <MiniTest::Test
+# class TestTeam  <MiniTest::Test
 
   # def test_team_name
-  #   team = Team.new("footballz", ["jim", "bobby", "sam", "hitler"],"stalin")
+  #  team = Team.new("footballz", ["jim", "bobby", "sam", "hitler"],"stalin")
   #   assert_equal("footballz", team.name)
   # end
   #
   # def test_players
-  #   team = Team.new("footballz", ["jim", "bobby", "sam", "hitler"],"stalin")
+    # team = Team.new("footballz", ["jim", "bobby", "sam", "hitler"],"stalin")
   #   assert_equal(["jim", "bobby", "sam", "hitler"], team.players)
   # end
   #
@@ -84,16 +84,65 @@ class TestTeam  <MiniTest::Test
   #   assert_equal(true, result)
   # end
 
-  def test_points_win
-    team = Team.new("footballz", ["jim", "bobby", "sam", "hitler"],"stalin", 0)
-    result = team.check_win_lose(true)
-    assert_equal(1, result)
+#   def test_points_win
+#     team = Team.new("footballz", ["jim", "bobby", "sam", "hitler"],"stalin", 0)
+#     result = team.check_win_lose(true)
+#     assert_equal(1, result)
+#   end
+#
+#   def test_points_lose
+#     team = Team.new("footballz", ["jim", "bobby", "sam", "hitler"],"stalin", 0)
+#     result = team.check_win_lose(false)
+#     assert_equal(0, result)
+#   end
+#
+# end
+
+class TestLibrary <MiniTest::Test
+
+  def setup
+    @book1 = [{
+      title: "lord_of_the_rings",
+      rental_details: {
+        student_name: "Jeff",
+        date: "01/12/16"
+      },
+    },
+    @book2 = {
+      title: "fight club",
+      rental_details: {
+        student_name: "Matt",
+        date: "02/12/16"
+      }
+    },
+    @book3 = {
+      title: "lord of the flies",
+      rental_details: {
+        student_name: "Ian",
+        date: "03/12/16"
+      }
+    },
+    @book4 = {
+      title: "battle royale",
+      rental_details: {
+        student_name: "Upul",
+        date: "04/12/16"
+      }
+
+    }]
+
+
+    @library = Library.new(@books)
+
+
+
   end
 
-  def test_points_lose
-    team = Team.new("footballz", ["jim", "bobby", "sam", "hitler"],"stalin", 0)
-    result = team.check_win_lose(false)
-    assert_equal(0, result)
+  def test_list_all_books
+    result = @library.books
+    assert_equal(@books, result)
   end
 
+  # def test_book_info
+  #   result
 end
