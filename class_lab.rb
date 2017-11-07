@@ -34,3 +34,26 @@ class Team
   end
 
 end
+
+class Library
+  attr_accessor :books
+
+  def initialize(books)
+    @books = books || []
+
+  end
+
+  def list_books
+    p @library
+  end
+
+  def find_book_by_name(name)
+    for book in @books
+      if book[:title] == name
+        return book
+      end
+    end
+    return nil
+  end
+
+end
